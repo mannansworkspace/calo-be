@@ -26,6 +26,15 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Redis
+
+install redis on system as I am using Bullmq Queue to scedule background processes
+
+## Node Version
+
+NodeJS 20
+nvm use 20
+
 ## Installation
 
 ```bash

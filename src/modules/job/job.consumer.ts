@@ -15,12 +15,14 @@ export class JobsConsumer extends WorkerHost {
 
   async process(job: Job<AppJob>): Promise<any> {
     try {
-      const unsplashUrl = 'https://api.unsplash.com/photos/random?query=food';
-      const response = await this.httpService.axiosRef.get(unsplashUrl, {
-        headers: {
-          Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+      const response = await this.httpService.axiosRef.get(
+        process.env.UNSPLASH_API_URL,
+        {
+          headers: {
+            Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+          },
         },
-      });
+      );
       job.data.urls = response.data.urls;
 
       return new Promise((resolve) => {
